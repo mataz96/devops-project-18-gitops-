@@ -1,0 +1,28 @@
+replicaCount: 2
+
+image:
+  repository: matazalassiry/devops-demo-app
+  tag: "v1.0.0"
+  pullPolicy: IfNotPresent
+  
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30080
+
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+
+probes:
+  healthPath: /actuator/health
+
+
+nodeSelector:
+  kubernetes.io/hostname: devops-cluster-worker

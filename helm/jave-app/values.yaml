@@ -1,10 +1,10 @@
-replicaCount: 2
+replicaCount: 3
 
 image:
   repository: matazalassiry/devops-demo-app
   tag: "v1.0.0"
   pullPolicy: IfNotPresent
-  
+
 service:
   type: NodePort
   port: 8080
